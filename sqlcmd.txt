@@ -1,0 +1,33 @@
+CREATE TABLE users (
+id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+username TEXT NOT NULL,
+hash TEXT
+);
+
+
+CREATE TABLE goals (
+stat_id INTEGER NOT NULL UNIQUE,
+weight REAL NOT NULL,
+protein_per_kg REAL NOT NULL,
+calories REAL NOT NULL,
+FOREIGN KEY(stat_id) REFERENCES users(id)
+);
+
+
+CREATE TABLE favorites (
+faveuser_id INTEGER NOT NULL,
+name TEXT,
+headers TEXT,
+sum_totals TEXT,
+nutrition TEXT,
+formated_table_rows TEXT,
+row_length INTEGER,
+recipe_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+FOREIGN KEY(faveuser_id) REFERENCES users(id)
+);
+
+CREATE TABLE image (
+recipe_id INTEGER NOT NULL,
+img_url TEXT,
+FOREIGN KEY(recipe_id) REFERENCES favorites(recipe_id)
+);

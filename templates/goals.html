@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Goals
+{% endblock %}
+
+{% block main %}
+    <form action="/goals" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto" style="width:20%" name="weight" step="any" placeholder="Weight in kg" type="number">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto" style="width:20%" name="protein" step="any" placeholder="Grams of protein per kg" type="number">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto" style="width:20%" name="calories" step="any" placeholder="kcal goal per day" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Submit Goals</button>
+    </form>
+
+    <div style="font-size:22px;" class="mustard">
+        Search online your protein per body mass ratio as it can differ from person to person. The general ballpark would be 1.4g to 2.2g per kg of body weight.
+    </div>
+{% endblock %}

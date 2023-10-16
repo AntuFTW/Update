@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Goals
+{% endblock %}
+
+{% block main %}
+    <script>
+        let total_protein = 0;
+        let total_calorie = 0;
+        document.addEventListener('DOMContentLoaded', function(){
+            let recipies = document.getElementsByClassName("checkbox");
+            for (let i = 0; i < recipies.length; i++) {
+                recipies[i].addEventListener("change", function checklisten(){
+                    let protein_value = recipies[i].getAttribute("value");
+                    let calorie_value = recipies[i].getAttribute("data-valuetwo");
+                    if (recipies[i].checked) {
+                        total_protein = total_protein + parseFloat(protein_value);
+                        total_calorie = total_calorie + parseFloat(calorie_value);
+                        protein.innerHTML = Math.round(total_protein * 100)/100 + "%";
+                        calories.innerHTML = Math.round(total_calorie * 100)/100 + "%";
+                    }
+                    else
+                    {
+                        total_protein = total_protein - parseFloat(protein_value);
+                        total_calorie = total_calorie - parseFloat(calorie_value);
+                        protein.innerHTML = Math.round(total_protein * 100)/100 + "%";
+                        calories.innerHTML = Math.round(total_calorie * 100)/100 + "%";
+                    }
+                });
+            }
+        });
+    </script>
+    <div>
+        <b style="font-size: 30px; color:black;">Goals</b>
+        <table>
+            <thead class="mustard">
+                <tr>
+                    <th>Calories per day goal(kcal)</th>
+                    <th>Weight Currently(kg)</th>
+                    <th>Protein per day goal(g)</th>
+                </tr>
+            </thead>
+            <tbody style="color: black; font-size: 18px">
+                <tr>
+                    <td>{{ calories_goal }}</td>
+                    <td>{{ weight_goal }}</td>
+                    <td>{{ protein_total_goal}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <b style="font-size: 30px; color:black;">Recipes from Favorites and their percentage daily goals</b>
+        <table>
+            <thead class="mustard">
+                <tr>
+                    <th>Recipe Name</th>
+                    <th>Serving Size</th>
+                    <th>% of daily Protein Goal</th>
+                    <th>% of daily Calorie Goal</th>
+                    <th>Add to diet</th>
+                </tr>
+            </thead>
+            <tbody style="color: black; font-size: 18px">
+                {% for i in range(length) %}
+                    <tr>
+                        <td>{{ names[i] }}</td>
+                        <td>{{ serving_size[i] }}</td>
+                        <td>{{ protein_goal_percent[i] }}</td>
+                        <td>{{ calorie_goal_percent[i] }}</td>
+                        <td>
+                            <input type="checkbox" class="checkbox" value="{{ protein_int[i] }}" data-valuetwo="{{ calorie_int[i] }}">
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <p style="color: black"><b>Total protein (% of daily goal):&#160</b><span id="protein"></span></p>
+        <p style="color: black"><b>Total calories (% of daily goal):&#160</b><span id="calories"></span></p>
+    </div>
+
+{% endblock %}

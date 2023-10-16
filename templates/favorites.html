@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Favorites
+{% endblock %}
+
+{% block main %}
+    {% for i in range(length_fave) %}
+        <form action="/favorites" method="post">
+            <input name="id" type="hidden" value="{{ ids[i] }}">
+            <button  type="submit" name="favorite_open" style="padding: 0; border: none; background: none;">
+                <img src="{{ img_url_list[i] }}" style="width:300px; height:300px; border:3px solid #212529">
+                    <figcaption><h3 style="font-size: 23px;" class="mustard">{{ names[i] }}</h3></figcaption>
+            </button>
+            <!--<button type="submit" name="favorite_open"><img src="{{ img_url_list[i] }}" style="width:300px; height:300px; border:10px solid #000000"></button>-->
+            <!--{{ names[i] }} class="btn btn-primary padd" -->
+        </form>
+    {% endfor %}
+{% endblock %}

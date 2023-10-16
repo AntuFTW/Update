@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Nutrition Info
+{% endblock %}
+
+{% block main %}
+    <form action="/nutrition" method="post">
+        <div class="mb-3">
+            <div class="mb-3" style="color:black; font-size:26px;">
+                Enter the ingredients along with the weight of the ingredients to get back spefific macronutrients and nutrient values for specific foods.
+                The default output is the serving size and protein in grams and the calories in kcal, if you want more nutrient values please tick the more nutritents
+                option. When typeing the ingrdients, please input the weight (in grams ideally) otherwise the api will assume it to be 100g.
+            </div>
+            <div>
+                <textarea id="query" name="query" style="width:40%; height: 200px;"></textarea>
+            </div>
+            <div class="mb-3" style="color:black; font-size:20px;">
+                <label for="more_options">Please check this box for more nutrition values:</label>
+                <input class="mb-3 largerCheckbox" type="checkbox" style="color:#A9A9A9;" name="more_options">
+            </div>
+            <div class="mb-3" style="color:black; font-size:20px;">
+                <label for="recipename">If you wish to save the recipe to favorites please enter the name you would like it to be saved as:</label>
+                <input  class="center" style="width:20%" type="text" name="recipename" placeholder="The name of the Recipe/Save">
+            </div>
+            <div class="mb-3" style="color:black; font-size:20px;">
+                <label for="recipeimg">Please enter the image URL into this box</label>
+                <input class="center" style="width:40%" type="text" name="recipeimg" placeholder="Image URL">
+            </div>
+            <div class="mb-3 mustard" style="font-size:18px;">
+                Note: sometimes the API is not completely accurate, when you are given your results just look over then to see if they are as expected. You can save
+                the table after submitting.
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+{% endblock %}

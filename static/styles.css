@@ -1,0 +1,109 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #E1Ad01;
+}
+nav .navbar-brand .green
+{
+    color: #004600;
+}
+
+.mustard {
+    color: #E1Ad01;
+
+}
+
+table {
+    background-color: transparent;
+    margin-bottom: 1rem;
+    width: 100%;
+    border: 1px solid black;
+}
+
+table th,
+table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+}
+
+.body {
+    background-position: center center;
+    background-image: url("/static/background-image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    /*background-color: #3f3f3f;*/
+}
+
+div {
+    padding:0.75rem;
+}
+
+input[type="text"], textarea {
+
+    background-color : #A9A9A9;
+    padding: 0.75rem;
+    border:1px solid black;
+
+}
+
+table.nutrition{
+    background-color: #BFCFFF;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+
+}
+
+.black {
+    color: #000000;
+}
+
+th
+{
+ border-bottom: 3px solid #000000;
+}
+
+table {
+    border-left: 3px solid #000000;
+    border-right: 3px solid #000000;
+    border-top: 3px solid #000000;
+    border-bottom: 3px solid #000000;
+}
+
+
+.footer {
+    border-top: 2px solid #000000;
+    
+
+}
+
+input.center {
+    text-align: center;
+}
+
+button.padd {
+    margin: 0.75rem;
+}
+
+input.largerCheckbox {
+    width: 15px;
+    height: 15px;
+}

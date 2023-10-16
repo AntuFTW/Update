@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Nutrition Table Favorites
+{% endblock %}
+
+{% block main %}
+    <h2>{{ title_name }}</h2>
+    <table>
+        <thead class="mustard">
+            <tr>
+                {% for header in headers %}
+                <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody style="color: #181716">
+                {% for row in formated_table_rows %}
+                    <tr>
+                        {% for i in range(row_length) %}
+                            <td>{{ row[i] }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+        </tbody>
+        <tfooter >
+            <tr class="footer">
+                <td><b>TOTAL</b></td>
+                {% for total in sum_totals %}
+                    <td><b>{{ total }}</b></td>
+                {% endfor %}
+            </tr>
+        </tfooter>
+    </table>
+
+    <form action="/favorite_display" method="post">
+        <input name="delete" type="hidden" value="{{ title_name }}">
+        <button class="btn btn-primary padd" type="submit" name="delete_button">Delete this recipe</button>
+    </form>
+{% endblock %}

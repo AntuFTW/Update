@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Nutrition Table
+{% endblock %}
+
+{% block main %}
+    <div>
+        <table>
+            <thead class="mustard">
+                <tr>
+                    {% for header in headers %}
+                    <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody style="color: #181716">
+                    {% for row in formated_table_rows %}
+                        <tr>
+                            {% for i in range(row_length) %}
+                                <td>{{ row[i] }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+            </tbody>
+            <tfooter >
+                <tr class="footer">
+                    <td><b>TOTAL</b></td>
+                    {% for total in sum_totals %}
+                        <td><b>{{ total }}</b></td>
+                    {% endfor %}
+                </tr>
+            </tfooter>
+        </table>
+
+{% endblock %}
